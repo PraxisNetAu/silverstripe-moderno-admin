@@ -48,11 +48,7 @@ class CMSMainEditFormExtension extends LeftAndMainExtension
                     // Define Form Action (allows ViewerGroups field to work in asset EditForm):
                     
                     $dummy->setFormAction(
-                        sprintf(
-                            '%s/field/File/item/%d/ItemEditForm',
-                            $form->FormAction(),
-                            $record->ID
-                        )
+                        Controller::join_links($form->FormAction(), 'field/File/item', $record->ID, 'ItemEditForm')
                     );
                     
                     // Update Field Object:
